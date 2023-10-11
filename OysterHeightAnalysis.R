@@ -18,9 +18,6 @@ library(rogme)
 library(tidyverse)
 
 # Eliminate NANs in existing oyster data for each group
-c2<-oylength21$ctl2
-c2<-c2[!is.na(c2)]
-
 c1<-oylength21$ctl1
 c1<-c1[!is.na(c1)]
 
@@ -32,14 +29,8 @@ r1<-r1[!is.na(r1)]
 
 # Compare lengths of different groups
 rfcompare <- mkt2(r1, r2)
-r1toc1 <- mkt2(r1, c1)
-r1toc2 <- mkt2(r1, c2)
-clcompare <- mkt2(c1, c2)
-r2toc1 <- mkt2(r2, c1)
 c1tor1 <- mkt2(c1, r1)
 c1tor2 <- mkt2(c1, r2)
-c2tor1 <- mkt2(c2, r1)
-c2tor2 <- mkt2(c2, r2)
 
 # Make scatterplots (must do for each comparison)
 ps <- plot_scat2(data = c1tor2,
